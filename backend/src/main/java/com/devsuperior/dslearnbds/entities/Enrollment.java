@@ -7,15 +7,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -43,6 +40,10 @@ public class Enrollment implements Serializable {
     @Setter(AccessLevel.NONE)
     @ManyToMany(mappedBy = "enrolltmentsDone")
     private Set<Lesson> lessonDone = new HashSet<>();
+
+    @Setter(AccessLevel.NONE)
+    @OneToMany(mappedBy = "enrollment")
+    private List<Deliver> deliveries = new ArrayList<>();
 
     //alterar o construtor para setar o User e Offer
     public Enrollment(User user,Offer offer, Instant enrollMoment, Instant refundMoment, boolean available, boolean onlyUpdate) {

@@ -44,7 +44,11 @@ public class Offer implements Serializable {
     private Course course;
 
     @Setter(AccessLevel.NONE)
-    @OneToMany(mappedBy = "offer")
+    @OneToMany(mappedBy = "offer") //nome do atributo da outra entidade
     private List<Resource> resources = new ArrayList<>();
+
+    @Setter(AccessLevel.NONE)
+    @OneToMany(mappedBy = "offer")
+    private List<Topic> topics = new ArrayList<>();
 
 }

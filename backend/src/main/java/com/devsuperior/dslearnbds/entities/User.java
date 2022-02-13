@@ -1,9 +1,6 @@
 package com.devsuperior.dslearnbds.entities;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -39,6 +36,7 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     private List<Notification> notifications = new ArrayList<>();
 
+    @Setter(AccessLevel.NONE)
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "tb_user_role",

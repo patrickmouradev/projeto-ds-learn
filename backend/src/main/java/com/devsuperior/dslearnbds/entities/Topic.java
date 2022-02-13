@@ -39,7 +39,7 @@ public class Topic implements Serializable {
     private Long id;
     private String title;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT") // columnDefinition = "TEXT" usado para identificar campos muito longos acima de 250ch
     private String body;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
