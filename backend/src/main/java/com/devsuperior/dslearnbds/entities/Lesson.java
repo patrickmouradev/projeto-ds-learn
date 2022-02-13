@@ -37,6 +37,7 @@ public abstract class Lesson implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
     private Integer position;
 
@@ -45,7 +46,7 @@ public abstract class Lesson implements Serializable {
     private Section section;
 
     @Setter(AccessLevel.NONE)
-    @OneToMany(mappedBy = "enrollment")
+    @OneToMany(mappedBy = "lesson")
     private List<Deliver> deliveries = new ArrayList<>();
 
     @Setter(AccessLevel.NONE)//para não adicionar o set no lombok

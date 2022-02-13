@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
 	</properties>
 
 	<dependencies>
@@ -52,6 +53,31 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<!-- INICIO DEPENDENCIAS DE VALIDACAO -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<!-- FIM DEPENDENCIAS DE VALIDACAO -->
+
+		<!-- INICIO DEPENDENCIAS DE SEGURANCA -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.security.oauth.boot</groupId>
+			<artifactId>spring-security-oauth2-autoconfigure</artifactId>
+		</dependency>
+
+		<!-- FIM DEPENDENCIAS DE SEGURANCA  ADCIONAR O dependencyManagement depois da chave de build-->
+
+
+
 	</dependencies>
 
 	<build>
@@ -62,4 +88,19 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<!-- INICIO DEPENDENCIAS DE SEGURANCA  -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- FIM DEPENDENCIAS DE SEGURANCA  -->
 </project>

@@ -19,7 +19,6 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.Instant;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -27,6 +26,7 @@ import java.time.Instant;
 @Entity
 @Table(name = "tb_deliver")
 public class Deliver implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     @Id
