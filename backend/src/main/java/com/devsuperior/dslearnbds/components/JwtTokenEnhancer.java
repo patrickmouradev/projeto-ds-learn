@@ -11,6 +11,7 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +27,7 @@ public class JwtTokenEnhancer implements TokenEnhancer {
         Map<String, Object> map = new HashMap<>();
 
         map.put("userId", user.getId());
+        map.put("roles", Arrays.asList(user.getRoles()));
 
         DefaultOAuth2AccessToken token = (DefaultOAuth2AccessToken) oAuth2AccessToken;
         token.setAdditionalInformation(map);
