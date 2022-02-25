@@ -19,6 +19,7 @@ import java.util.Set;
 @Getter
 @Setter
 @EqualsAndHashCode
+@NoArgsConstructor
 @Table(name = "tb_enrollment")
 
 public class Enrollment implements Serializable {
