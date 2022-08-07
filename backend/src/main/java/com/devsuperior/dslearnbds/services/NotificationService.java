@@ -18,11 +18,11 @@ public class NotificationService {
     @Autowired
     private AuthService authService;
 
-    public Page<NotificationDTO> notificationForCurrentUser(Pageable pageable){
+    public Page<NotificationDTO> notificationForCurrentUser(boolean userReadOnly, Pageable pageable){
 
         User user = authService.authenticated();
 
-        Page<Notification> page = notificationRepository.findByUser(user,pageable);
+        Page<Notification> page = notificationRepository.find(user,userReadOnly,pageable);
 
         //return page.map( p -> new NotificationDTO(p)); metodo lambda
 
